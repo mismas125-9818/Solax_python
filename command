@@ -1,0 +1,1 @@
+curl -d "?optType=ReadRealTimeData&pwd=SREAZABLZU" -X POST http://192.168.10.10
