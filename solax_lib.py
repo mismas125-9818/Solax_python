@@ -11,7 +11,7 @@ class SolaxInverter:
 
     def _load_mapping(self):
         if not os.path.exists(self.mapping_file):
-            raise FileNotFoundError(f"Chýba súbor {self.mapping_file}")
+            raise FileNotFoundError(f"Missing file {self.mapping_file}")
         with open(self.mapping_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
             return {int(k): v for k, v in data.items()}
@@ -33,7 +33,7 @@ class SolaxInverter:
             for idx, (name, scale, unit, is_signed) in self.mapping.items():
                 if idx < len(raw_data):
                     val = raw_data[idx]
-                    if name == "Teplota Invertora" and val > 100:
+                    if name == "Temperature of invertor" and val > 100:
                         val -= 100
                     if is_signed:
                         val = self._to_signed(val)
