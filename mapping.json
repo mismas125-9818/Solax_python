@@ -1,15 +1,15 @@
 {
-    "0": ["Napätie PV1", 0.1, "V", false],
-    "1": ["Napätie PV2", 0.1, "V", false],
-    "3": ["Prúd PV1", 0.1, "A", false],
-    "4": ["Prúd PV2", 0.1, "A", false],
-    "42": ["Sieť Napätie L1", 0.1, "V", false],
-    "46": ["Sieť Napätie L2", 0.1, "V", false],
-    "47": ["Sieť Napätie L3", 0.1, "V", false],
-    "16": ["Napätie Batérie", 0.01, "V", false],
-    "102": ["Výkon Batérie", 1, "W", true],
-    "103": ["Kapacita Batérie (SoC)", 1, "%", false],
-    "34": ["Export/Import Siete", 1, "W", true],
-    "54": ["Teplota Invertora", 1, "°C", false],
-    "68": ["Celková výroba", 0.1, "kWh", false]
+    "0": ["PV1 Voltage", 0.1, "V", false],
+    "1": ["PV2 Voltage", 0.1, "V", false],
+    "3": ["PV1 Current", 0.1, "A", false],
+    "4": ["PV2 Current", 0.1, "A", false],
+    "42": ["Grid Voltage L1", 0.1, "V", false],
+    "46": ["Grid Voltage L2", 0.1, "V", false],
+    "47": ["Grid Voltage L3", 0.1, "V", false],
+    "16": ["Battery Voltage", 0.01, "V", false],
+    "102": ["Battery Power", 1, "W", true],
+    "103": ["Battery Capacity (SoC)", 1, "%", false],
+    "34": ["Export/Import Grid", 1, "W", true],
+    "54": ["Inverter Temperature", 1, "°C", false],
+    "68": ["Total Energy", 0.1, "kWh", false]
 }
