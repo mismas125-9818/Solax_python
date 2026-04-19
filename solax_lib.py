@@ -19,29 +19,30 @@ class SolaxInverter:
     def _to_signed(self, val):
         return val if val < 32768 else val - 65536
 
-    def get_data(self):
-        url = f"http://{self.ip}"
-        payload = f"?optType=ReadRealTimeData&pwd={self.password}"
+    def get_all_data(self):
+        url = f"http://{self.ip}/?optType=ReadRealTimeData&pwd={self.password}"
         try:
-            response = requests.post(url, data=payload, timeout=3)
+            # Použijeme POST podľa tvojho overeného kódu
+            response = requests.post(url, timeout=3)
             raw_data = response.json().get("Data")
             if not raw_data:
                 return None
             
-            # Spracovanie do pekného slovníka
             processed = {}
             for idx, (name, scale, unit, is_signed) in self.mapping.items():
                 if idx < len(raw_data):
                     val = raw_data[idx]
-                    if name == "Temperature of invertor" and val > 100:
+                    
+                    if "Temperature" in name and val > 100:
                         val -= 100
+                        
                     if is_signed:
                         val = self._to_signed(val)
                     
+                    # Uložíme to ako jednoduchý slovník
                     processed[name] = {
                         "value": round(val * scale, 2),
-                        "unit": unit,
-                        "raw": raw_data[idx]
+                        "unit": unit
                     }
             return processed
         except Exception:
